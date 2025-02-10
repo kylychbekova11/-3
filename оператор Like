@@ -1,0 +1,5 @@
+--Найти салаты, в названии которых есть 5 и более символов:
+
+    SELECT SaladName, Ingredients, PreparationTime, Price
+    FROM Salads
+    WHERE SaladName LIKE '___';

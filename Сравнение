@@ -1,0 +1,3 @@
+SELECT SaladName, Ingredients, PreparationTime, Price
+FROM Salads
+WHERE PreparationTime < 30;

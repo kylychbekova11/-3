@@ -1,0 +1,4 @@
+--Подсчёт общего количества салатов
+
+SELECT COUNT(*) AS total_salads
+FROM Salads;

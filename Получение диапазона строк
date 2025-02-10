@@ -1,0 +1,6 @@
+--Выборка 2 салатов, начиная с 4-го
+
+SELECT SaladName, Ingredients, PreparationTime, Price
+FROM Salads
+ORDER BY SaladID
+LIMIT 2 OFFSET 3;

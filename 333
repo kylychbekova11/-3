@@ -1,0 +1,66 @@
+-- Создание базы данных
+--Инструкция CREATE создания базу данных и таблиц
+CREATE DATABASE SaladRecipes;
+USE SaladRecipes;
+
+CREATE TABLE Chefs (
+    ChefID INT AUTO_INCREMENT PRIMARY KEY,
+    ChefName VARCHAR(100) NOT NULL,
+    ExperienceYears INT
+);
+
+CREATE TABLE Salads (
+    SaladID INT AUTO_INCREMENT PRIMARY KEY,
+    SaladName VARCHAR(100) NOT NULL,
+    Ingredients TEXT,
+    PreparationTime INT
+);
+ --связи поваров и салатов
+CREATE TABLE ChefSalad (
+    ChefID INT,
+    SaladID INT,
+    PRIMARY KEY (ChefID, SaladID),
+    FOREIGN KEY (ChefID) REFERENCES Chefs(ChefID),
+    FOREIGN KEY (SaladID) REFERENCES Salads(SaladID)
+);
+
+-- Добавление данных о поварах
+--Инструкция INSERT
+INSERT INTO Chefs (ChefName, ExperienceYears) VALUES
+('Иван Иванов', 5),
+('Мария Петрова', 10),
+('Алексей Сидоров', 3),
+('Ольга Кузнецова', 7),
+('Дмитрий Васильев', 2);
+
+-- Добавление данных о салатах
+INSERT INTO Salads (SaladName, Ingredients, PreparationTime) VALUES
+('Цезарь', 'Курица, салат айсберг, сухарики, пармезан, соус Цезарь', 20),
+('Греческий', 'Помидоры, огурцы, оливки, фета, лук, оливковое масло', 15),
+('Оливье', 'Картофель, морковь, горошек, колбаса, яйца, майонез', 30),
+('Крабовый', 'Крабовые палочки, кукуруза, яйца, рис, майонез', 25),
+('Мимоза', 'Рыба консервированная, картофель, морковь, яйца, майонез', 30),
+('Винегрет', 'Свекла, картофель, морковь, квашеная капуста, лук, масло', 20),
+('Сельдь под шубой', 'Сельдь, картофель, свекла, морковь, яйца, майонез', 40),
+('Капрезе', 'Помидоры, моцарелла, базилик, оливковое масло', 10),
+('Теплый салат с курицей', 'Курица, шпинат, грибы, помидоры, сыр', 25),
+('Фруктовый салат', 'Яблоки, бананы, апельсины, киви, йогурт', 15);
+
+-- Добавление связи между поварами и салатами
+INSERT INTO ChefSalad (ChefID, SaladID) VALUES
+(1, 1),
+(1, 2),
+(2, 3),
+(2, 4),
+(3, 5),
+(3, 6),
+(4, 7),
+(4, 8),
+(5, 9),
+(5, 10);
+
+-- Пример запроса для вывода списка поваров и салатов
+SELECT c.ChefName, s.SaladName
+FROM Chefs c
+JOIN ChefSalad cs ON c.ChefID = cs.ChefID
+JOIN Salads s ON cs.SaladID = s.SaladID;

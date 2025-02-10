@@ -1,0 +1,7 @@
+--Выборка салатов с определённым временем приготовления
+--Если вы хотите выбрать все салаты, у которых указано время приготовления (не NULL), используйте следующий запрос:
+
+sql
+SELECT SaladName, Ingredients, PreparationTime, Price
+FROM Salads
+WHERE PreparationTime IS NOT NULL;

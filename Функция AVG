@@ -1,0 +1,4 @@
+ --Вычисление средней цены всех салатов
+
+SELECT AVG(Price) AS avg_price
+FROM Salads;

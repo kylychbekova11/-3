@@ -1,0 +1,3 @@
+SELECT SaladName, Ingredients, PreparationTime, Price
+FROM Salads
+ORDER BY SaladName ASC, Price DESC;

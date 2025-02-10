@@ -1,0 +1,4 @@
+--Выбор минимальной и максимальной цены среди всех салатов
+
+SELECT MIN(Price) AS min_price, MAX(Price) AS max_price
+FROM Salads;
