@@ -1,0 +1,5 @@
+CREATE TABLE Chefs (
+    ChefID INT AUTO_INCREMENT PRIMARY KEY,
+    ChefName VARCHAR(100) NOT NULL,
+    ExperienceYears INT
+);

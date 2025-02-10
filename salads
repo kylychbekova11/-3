@@ -1,0 +1,6 @@
+CREATE TABLE Salads (
+    SaladID INT AUTO_INCREMENT PRIMARY KEY,
+    SaladName VARCHAR(100) NOT NULL,
+    Ingredients TEXT,
+    PreparationTime INT
+);

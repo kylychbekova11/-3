@@ -1,0 +1,7 @@
+CREATE TABLE ChefSalad (
+    ChefID INT,
+    SaladID INT,
+    PRIMARY KEY (ChefID, SaladID),
+    FOREIGN KEY (ChefID) REFERENCES Chefs(ChefID),
+    FOREIGN KEY (SaladID) REFERENCES Salads(SaladID)
+);
